@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL
+);
+
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+CREATE TABLE IF NOT EXISTS geospatial_data (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    geom GEOMETRY(Point, 4326)
+);

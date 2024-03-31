@@ -1,0 +1,35 @@
+# .air.toml
+
+# You can specify multiple entries to monitor & run different tasks.
+# If any entry is missing or is not a string or is an empty string,
+# Air will do nothing.
+[[runners]]
+  # Watch these paths, if they change, Air will restart your app.
+  # Required.
+  paths = ["."]
+
+  # Specify the command to run your app. For example, if you use Gin:
+  #   command = "go run main.go"
+  # Required.
+  command = "go run main.go"
+
+  # Specify the listening port of your app.
+  # If empty, Air will auto detect it by:
+  #   1. If you're using Go's standard HTTP library, Air will scan your main
+  #      files and automatically pick the port.
+  #   2. If you're using other libraries, Air will try to connect to your app
+  #      and figure it out.
+  # Optional.
+  port = 8080
+
+  # It's okay to omit this, the default value is 1.
+  # This number represents the max amount of times Air tried to recover from
+  # failure. On each recovering, Air will sleep 3 seconds and retry.
+  #
+  # max_retry = 1
+
+  # It's okay to omit this, the default value is 1.
+  # This number represents the max amount of attempts that Air tries to build
+  # your app.
+  #
+  # max_build_delay = 1
